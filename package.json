@@ -1,5 +1,5 @@
 {
-  "name": "mfa-totp",
+  "name": "totp-mfa",
   "version": "1.0.0",
   "description": "Node package to generate and verify MFA TOTP based on MFA Secret",
   "main": "index.js",
