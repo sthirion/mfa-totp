@@ -4,14 +4,14 @@ Node package to generate and verify an MFA Time-Based One-Time Password based on
 ## Installation
 
 ```sh
-npm install mfa-totp
+npm install totp-mfa
 ```
 
 ## Usage
 
 ### Generating a Time-Based One-Time Password
 ```sh
-const { getTOTP } = require('mfa-totp');
+const { getTOTP } = require('totp-mfa');
 
 // Generate a random base32 secret (you can use your own method or library)
 const secret = 'JBSWY3DPEHPK3PXP'; // Example secret
@@ -22,7 +22,7 @@ console.log(`Generated TOTP: ${totp}`);
 ```
 ### Verify a Time-Based One-Time Password
 ```sh
-const { verifyTOTP } = require('mfa-totp');
+const { verifyTOTP } = require('totp-mfa');
 
 // Use the same secret as used for generating the TOTP
 const secret = 'JBSWY3DPEHPK3PXP'; // Example secret
