@@ -34,3 +34,15 @@ const totp = '123456'; // Example TOTP
 const isValid = verifyTOTP(secret, totp);
 console.log(`Is TOTP valid? ${isValid}`);
 ```
+
+### Get the validity of a Time-Based One-Time Password
+```sh
+const { getTOTP, verifyTOTP, getTOTPValidity } = require('totp-mfa');
+
+const secret = 'JBSWY3DPEHPK3PXP'; // Example secret
+const totp = getTOTP(secret);
+console.log(`Generated TOTP: ${totp}`);
+
+const remainingTime = getTOTPValidity();
+console.log(`TOTP is valid for another ${remainingTime} seconds.`);
+```

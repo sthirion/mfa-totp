@@ -1,4 +1,4 @@
-const { getTOTP, verifyTOTP } = require('./index');
+const { getTOTP, verifyTOTP, getTOTPValidity } = require('./index');
 
 function generateBase32Secret(length = 16) {
   const base32Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
@@ -21,4 +21,10 @@ test('verify TOTP', () => {
   const totp = getTOTP(mfaSecret);
   const isValid = verifyTOTP(mfaSecret, totp);
   expect(isValid).toBe(true); // The verification should return true
+});
+
+test('get TOTP validity', () => {
+  const remainingTime = getTOTPValidity();
+  expect(remainingTime).toBeGreaterThanOrEqual(0); // Remaining time should be >= 0
+  expect(remainingTime).toBeLessThanOrEqual(30); // Remaining time should be <= 30
 });

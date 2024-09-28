@@ -53,4 +53,11 @@ function verifyTOTP(mfaSecret, providedTOTP) {
   return generatedTOTP === providedTOTP;
 }
 
-module.exports = { getTOTP, verifyTOTP };
+function getTOTPValidity() {
+  const timeInSec = Math.round(new Date().getTime() / 1000.0);
+  const timeStep = 30;
+  const remainingTime = timeStep - (timeInSec % timeStep);
+  return remainingTime;
+}
+
+module.exports = { getTOTP, verifyTOTP, getTOTPValidity};
